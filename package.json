@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lumiacove/lumiastream-api-demo-js.git"
+    "url": "git+https://github.com/lumiastream/lumiastream-api-demo-js.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lumiacove/lumiastream-api-demo-js/issues"
+    "url": "https://github.com/lumiastream/lumiastream-api-demo-js/issues"
   },
-  "homepage": "https://github.com/lumiacove/lumiastream-api-demo-js#readme",
+  "homepage": "https://github.com/lumiastream/lumiastream-api-demo-js#readme",
   "dependencies": {
     "axios": "^0.19.2"
   }
