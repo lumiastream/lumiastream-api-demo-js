@@ -1,0 +1,482 @@
+{
+	"info": {
+		"_postman_id": "7db90246-bc64-48dd-9ea4-66dd61dd328f",
+		"name": "Local API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Retrieve All Commands",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:39231/api/send?token={{token}}&type=rgb-color&params=\"{\\\"value\\\":[20,100,10],\\\"brightness\\\":100,\\\"transition\\\":0,\\\"duration\\\":5000}\"",
+					"host": [
+						"localhost"
+					],
+					"port": "39231",
+					"path": [
+						"api",
+						"send"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "type",
+							"value": "rgb-color"
+						},
+						{
+							"key": "params",
+							"value": "\"{\\\"value\\\":[20,100,10],\\\"brightness\\\":100,\\\"transition\\\":0,\\\"duration\\\":5000}\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Command",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"chat-command\",\n\t\"params\": {\n        \"value\": \"blue\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:39231/api/send?token={{token}}",
+					"host": [
+						"localhost"
+					],
+					"port": "39231",
+					"path": [
+						"api",
+						"send"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				},
+				"description": "Options:\n\ntest\nalert\nrgb-color\nchat-color\nchat-scene\nchat-reaction\nchat-animation\nchat-interactives\nchat-hype\nstudio-scene\nstudio-animation\nstart-fuze\nstop-fuze\nstart-lumia\nstop-lumia"
+			},
+			"response": []
+		},
+		{
+			"name": "Send Alert",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"alert\",\n\t\"params\": {\n        \"value\": \"twitch-follower\"\n    },\n    \"hold\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:39231/api/send?token={{token}}",
+					"host": [
+						"localhost"
+					],
+					"port": "39231",
+					"path": [
+						"api",
+						"send"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				},
+				"description": "Options:\n\ntest\nalert\nrgb-color\nchat-color\nchat-scene\nchat-reaction\nchat-animation\nchat-interactives\nchat-hype\nstudio-scene\nstudio-animation\nstart-fuze\nstop-fuze\nstart-lumia\nstop-lumia"
+			},
+			"response": []
+		},
+		{
+			"name": "Send RGB Color",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"rgb-color\",\n    \"params\": {\n        \"value\": { \"r\": 20, \"g\": 100, \"b\": 10 },\n        \"brightness\": 100,\n        \"transition\": 0,\n        \"duration\": 5000\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:39231/api/send?token={{token}}",
+					"host": [
+						"localhost"
+					],
+					"port": "39231",
+					"path": [
+						"api",
+						"send"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send RGB-Color (Get)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:39231/api/send?token={{token}}&type=rgb-color&params=\"{\\\"value\\\":[20,100,10],\\\"brightness\\\":100,\\\"transition\\\":0,\\\"duration\\\":5000}\"",
+					"host": [
+						"localhost"
+					],
+					"port": "39231",
+					"path": [
+						"api",
+						"send"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "type",
+							"value": "rgb-color"
+						},
+						{
+							"key": "params",
+							"value": "\"{\\\"value\\\":[20,100,10],\\\"brightness\\\":100,\\\"transition\\\":0,\\\"duration\\\":5000}\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send HEX Color",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"hex-color\",\n    \"params\": {\n        \"value\": \"#ff00ff\",\n        \"brightness\": 100,\n        \"transition\": 0,\n        \"duration\": 5000\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:39231/api/send?token={{token}}",
+					"host": [
+						"localhost"
+					],
+					"port": "39231",
+					"path": [
+						"api",
+						"send"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send HEX-Color (Get)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:39231/api/send?token={{token}}&type=hex-color&params=\"{\\\"value\\\":\\\"%23ff00ff\\\",\\\"brightness\\\":100,\\\"transition\\\":0,\\\"duration\\\":5000}\"",
+					"host": [
+						"localhost"
+					],
+					"port": "39231",
+					"path": [
+						"api",
+						"send"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "type",
+							"value": "hex-color"
+						},
+						{
+							"key": "params",
+							"value": "\"{\\\"value\\\":\\\"%23ff00ff\\\",\\\"brightness\\\":100,\\\"transition\\\":0,\\\"duration\\\":5000}\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send HEX Color With Specific Lights",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"hex-color\",\n    \"params\": {\n        \"value\": \"#ff00ff\",\n        \"brightness\": 100,\n        \"transition\": 0,\n        \"duration\": 5000,\n        \"lights\": [\n            { \"type\": \"hue\", \"value\": \"hue-go\" }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:39231/api/send?token={{token}}",
+					"host": [
+						"localhost"
+					],
+					"port": "39231",
+					"path": [
+						"api",
+						"send"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TTS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"tts\",\n\t\"params\": {\n        \"value\": \"Wow this tutorial is just way too cool\",\n        \"volume\": 100\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:39231/api/send?token={{token}}",
+					"host": [
+						"localhost"
+					],
+					"port": "39231",
+					"path": [
+						"api",
+						"send"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				},
+				"description": "Options:\n\ntest\nalert\nrgb-color\nchat-color\nchat-scene\nchat-reaction\nchat-animation\nchat-interactives\nchat-hype\nstudio-scene\nstudio-animation\nstart-fuze\nstop-fuze\nstart-lumia\nstop-lumia"
+			},
+			"response": []
+		},
+		{
+			"name": "Chatbot Message",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"chatbot-message\",\n\t\"params\": {\n        \"value\": \"Wow this tutorial is just way too cool\",\n        \"platform\": \"twitch\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:39231/api/send?token={{token}}",
+					"host": [
+						"localhost"
+					],
+					"port": "39231",
+					"path": [
+						"api",
+						"send"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				},
+				"description": "Options:\n\ntest\nalert\nrgb-color\nchat-color\nchat-scene\nchat-reaction\nchat-animation\nchat-interactives\nchat-hype\nstudio-scene\nstudio-animation\nstart-fuze\nstop-fuze\nstart-lumia\nstop-lumia"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "enter your local lumia token"
+		}
+	]
+}
