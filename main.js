@@ -1,47 +1,64 @@
 const axios = require('axios');
 
-const token = 'paste-token-here'; // Paste token from Lumia Stream (Settings > Advanced > API > Rest API > Show Token)
+const token = 'paste-token-here'; // Paste token from Lumia Stream (Settings > Advanced > Developers API > Show Token)
 
-// Get Possible Types and Values
-axios
-	.get(`http://localhost:39231/api/retrieve?token=${token}`)
-	.then((res) => {
-		console.log('Api option res: ', res.data);
-	})
-	.catch((err) => {
-		console.log('err: ', err);
-	});
+const run = async () => {
+	try {
+		if (!token) {
+			throw new Error('Token is required');
+		}
 
-// Trigger Chat Color Blue
-axios
-	.post(`http://localhost:39231/api/send?token=${token}`, { type: 'chat-color', value: 'blue' })
-	.then((res) => {
-		console.log('res: ', res.data);
-	})
-	.catch((err) => {
-		console.log('err: ', err);
-	});
+		// Get Possible Types and Values
+		const retrieveRes = await axios.get(`http://localhost:39231/api/retrieve?token=${token}`);
 
-// Trigger Generic RGB Color with a duration of 4 seconds
-setTimeout(() => {
-	axios
-		.post(`http://localhost:39231/api/send?token=${token}`, { type: 'rgb-color', value: { color: [255, 0, 255], brightness: 100, transition: 100, duration: 5000 } })
-		.then((res) => {
-			console.log('res: ', res.data);
-		})
-		.catch((err) => {
-			console.log('err: ', err);
+		console.log('API Retrieve response: ', retrieveRes.data);
+
+		// Senc Chat Command Blue
+		const commandRes = await axios.post(`http://localhost:39231/api/send?token=${token}`, {
+			type: 'chat-command',
+			params: {
+				value: 'blue',
+			},
 		});
 
-	// Get Example
-	// let value = { color: [255, 0, 255], brightness: 100, transition: 100, duration: 5000 };
-	// let strValue = JSON.stringify(value);
-	// axios
-	// 	.get(`http://localhost:39231/api/send?token=${token}&type=rgb-color&value=${strValue}`)
-	// 	.then((res) => {
-	// 		console.log('res: ', res.data);
-	// 	})
-	// 	.catch((err) => {
-	// 		console.log('err: ', err);
-	// 	});
-}, 2000);
+		console.log('API Command response: ', commandRes.data);
+
+		// Send Alert
+		const alertRes = await axios.post(`http://localhost:39231/api/send?token=${token}`, {
+			type: 'alert',
+			params: {
+				value: 'twitch-follower',
+			},
+		});
+
+		console.log('API Alert response: ', alertRes.data);
+
+		// Send RGB Colors with Brightness
+		const genericRes = await axios.post(`http://localhost:39231/api/send?token=${token}`, {
+			type: 'rgb-color',
+			params: { value: { r: 20, g: 100, b: 10 }, brightness: 100, transition: 0, duration: 5000 },
+		});
+
+		console.log('API Generic response: ', genericRes.data);
+
+		// Send Text To Speech
+		const ttsRes = await axios.post(`http://localhost:39231/api/send?token=${token}`, {
+			type: 'tts',
+			params: { value: 'Wow, this tutorial is so cool' },
+		});
+
+		console.log('API TTS response: ', ttsRes.data);
+
+		// Send Chatbot message
+		const chatbotRes = await axios.post(`http://localhost:39231/api/send?token=${token}`, {
+			type: 'chatbot-message',
+			params: { value: 'Wow, this tutorial is so cool', platform: 'twitch' },
+		});
+
+		console.log('API Chatbot response: ', chatbotRes.data);
+	} catch (err) {
+		console.error('API run err: ', err);
+	}
+};
+
+run();
